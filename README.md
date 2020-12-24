@@ -8,7 +8,7 @@ If you have questions about the sqlite databases. DM me in Discord with the name
 npm i better-sqlite3 --save
 npm i discord.js --save
 ```
-## Showcase -> index.js
+## 1: Showcase -> index.js
 First I create a database in the main file.
 For me is `index.js`. You can name it what you want.
 ```js
@@ -32,3 +32,4 @@ client.on('ready', async() => {
 
 })
 ```
+If you can create databases, just skip that part.
