@@ -8,6 +8,8 @@ If you have questions about the sqlite databases. DM me in Discord with the name
 npm i better-sqlite3 --save
 ```
 ## Showcase -> index.js
+First I create a database in the main file.
+For me is `index.js`. You can name it what you want.
 ```js
 const sqlite = require('better-sqlite3')
 ```
