@@ -7,3 +7,7 @@ If you have questions about the sqlite databases. DM me in Discord with the name
 ```
 npm i better-sqlite3 --save
 ```
+## Showcase -> `index.js`
+```js
+const sqlite = require('better-sqlite3')
+```
