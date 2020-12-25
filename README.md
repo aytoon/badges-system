@@ -46,3 +46,22 @@ client.setProfile.run(p)
 If you can create databases, just skip that part.
 ## 3: Showcase -> profile.js
 If you want to make badges in other command just do this, I will use in `profile.js`.
+```js
+const { MessageEmbed } = require("discord.js")
+var p = client.getProfile.get(message.author.id)
+
+var ubadges = "";
+
+if (p.founder == "true") ubadges = ubadges + ` <:EMOJI_NAME:EMOJI_ID>`;
+if (p.developer == "true") ubadges = ubadges + ` <:EMOJI_NAME:EMOJI_ID>`;
+if (p.staff == "true") ubadges = ubadges + ` <:EMOJI_NAME:EMOJI_ID>`;
+if (ubadges == "" || ubadges == undefined || ubadges == "undefined") {
+  ubadges = "`Not found`"; // You can rename this, if you want a other error if the user doesn't have badges.
+}
+
+// Embed Part
+const embed = new MessageEmbed()
+.setTitle(`**Your Badges:** ${ubadges}`)
+
+message.channel.send(embed)
+```
