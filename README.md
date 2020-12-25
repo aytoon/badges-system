@@ -44,3 +44,5 @@ if(!p) {
 client.setProfile.run(p)
 ```
 If you can create databases, just skip that part.
+## 3: Showcase -> profile.js
+If you want to make badges in other command just do this, I will use in `profile.js`.
