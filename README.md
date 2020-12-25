@@ -22,21 +22,25 @@ client.on('ready', async() => {
    
    const table1 = p.prepare("SELECT count(*) FROM sqlite_master WHERE type='table' AND name = 'Profile';").get();
     if (!table1['count(*)']) {
-      p.prepare("CREATE TABLE Profile (id TEXT PRIMARY KEY, founder TEXT, developer TEXT, staff TEXT);").run();
+      p.prepare("CREATE TABLE Profile (id TEXT PRIMARY KEY, user TEXT, founder TEXT, developer TEXT, staff TEXT);").run();
       p.prepare("CREATE UNIQUE INDEX idx_Profile_id ON Profile (id);").run();
       p.pragma("journal_mode = wal");
     }
     
-    client.getProfile = p.prepare("SELECT * FROM Profile WHERE id = ?");
-    client.setProfile = p.prepare("INSERT OR REPLACE INTO Profile (id, founder, developer, staff) VALUES (@id, @founder, @developer, @staff);");
+    client.getProfile = p.prepare("SELECT * FROM Profile WHERE user = ?");
+    client.setProfile = p.prepare("INSERT OR REPLACE INTO Profile (id, user, founder, developer, staff) VALUES (@id, @founder, @developer, @staff);");
 
 })
 ```
 If you can create databases, just skip that part.
-## 2: Showcase -> events/message.js
+## 2: Showcase -> message.js
 ```js
 const discord = require('discord.js')
-const p = client.getProfile.get(message.author.id)
+var p = client.getProfile.get(message.author.id)
 
-
+if(!p) {
+  p = { id: `${message.author.id}`, user: `${message.author.id}`, founder: `false`, developer: `false`, staff: `false` }
+}
+client.setProfile.run(p)
 ```
+If you can create databases, just skip that part.
