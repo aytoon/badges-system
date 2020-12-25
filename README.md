@@ -65,3 +65,5 @@ const embed = new MessageEmbed()
 
 message.channel.send(embed)
 ```
+I hope, i can help you with the badges system :D
+Have fun to code your bot ❤
