@@ -33,3 +33,10 @@ client.on('ready', async() => {
 })
 ```
 If you can create databases, just skip that part.
+## 2: Showcase -> events/message.js
+```js
+const discord = require('discord.js')
+const p = client.getProfile.get(message.author.id)
+
+
+```
